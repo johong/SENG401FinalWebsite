@@ -1,12 +1,14 @@
 body{
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     margin: auto 0;
+    display: block;
 }
 
 
 .main-nav{
     display: flex;
     background-color: #4CAF50;
+    z-index: 1;
 }
 
 .sticky{
@@ -14,6 +16,24 @@ body{
     top: 0;
     width: 100%
 }
+
+.top{
+    height: 30%;
+    background-image: linear-gradient( #13547a ,  #80d0c7);
+    text-align: center;
+}
+
+.top h1{
+    color:white;
+    opacity: 0.7;
+    padding-top: 60px;
+}
+
+.top-images{
+    display: flex;
+    justify-content: center;
+}
+
 
 /* Dropdown Button */
 .dropbtn {
@@ -59,3 +79,21 @@ body{
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  .aboutUs {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+
+  .aboutUs-container {
+    border: 1px solid;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .contactInfo p {
+    font-size: 16px;
+    padding: 10px 0px 5px 0px;
+  }
