@@ -11,11 +11,9 @@
             <div class="dropdown">
                 <button class="dropbtn">Dropdown</button>
                 <div class="dropdown-content">
-                    <a href="#">Biography</a>
-                    <a href="#">Resume</a>
-                    <a href="#">Hobbies</a>
-                    <a href="#">Contact Us</a>
-                    <a href="#">Map</a>
+                    <a href="#aboutUsID">About Us</a>
+                    <a href="#contactInfoId">Contact Us</a>
+                    <a href="#mapId">Map</a>
                 </div>
             </div>
         </nav>
@@ -28,10 +26,11 @@
             </div>
         </div>
 
-        <div class="aboutUs">
+        <div id="aboutUsID" class="aboutUs">
             <div class = "aboutUs-container">
+                <p>About Daniel (30021292)</p>
                 <img src="images/Daniel.jpg" alt ="Daniel" width="200" height="200">
-                <p style="color:blue">
+                <p>
                     He is a 3rd year software engineering student, currently loving html and css.<br>
                     As you can tell by the obnoxious font color he is also a fan of blue.<br><!--Remove this line if you want, along with the font :D-->
                 </p>
@@ -71,7 +70,7 @@
             </div>
         </div>
 
-        <div class="contactInfo">
+        <div id="contactInfoId" class="contactInfo">
             <h1>Contact Us</h1>
             <form class="submitContactInfo">
                 <p>Title</p>
@@ -100,13 +99,13 @@
 
 
 
-        <div>
+        <div id="mapId">
             <img src = 'images/WorldMap.png' alt = 'Worldmap' usemap = '#worldmap' width = 720px height = 360px />
             <map name = 'worldmap' >
                 <area class = 'area' shape='circle' coords='124,75,10' alt='calgary' href='http://www.calgary.ca'>
-                
+
             </map>
-        </div> 
+        </div>
 
 
 
