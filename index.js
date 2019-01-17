@@ -4,28 +4,36 @@ let map = document.getElementById('mapId');
 
 for (let i = 0; i < aboutUs.length; i++) {
     aboutUs[i].addEventListener('mouseover', function() {
-        aboutUs[i].style.background = 'yellow';
+        highlightItem(aboutUs[i])
     });
 
     aboutUs[i].addEventListener('mouseout', function() {
-        aboutUs[i].style.background = 'white';
+        unHighlightItem(aboutUs[i])
     });
 }
 
 for (let i = 0; i < contactInfo.length; i++) {
     contactInfo[i].addEventListener('mouseover', function() {
-        contactInfo[i].style.background = 'yellow';
+        highlightItem(contactInfo[i]);
     });
 
     contactInfo[i].addEventListener('mouseout', function() {
-        contactInfo[i].style.background = 'white';
+        unHighlightItem(contactInfo[i]);
     });
 }
 
 map.addEventListener('mouseover', function() {
-    map.style.background = 'yellow';
+    highlightItem(map);
 });
 
 map.addEventListener('mouseout', function() {
-    map.style.background = 'white';
+    unHighlightItem(map);
 });
+
+function highlightItem(item) {
+    item.style.background = 'yellow';
+}
+
+function unHighlightItem(item) {
+    item.style.background = 'white';
+}
