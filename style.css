@@ -79,3 +79,21 @@ body{
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  .aboutUs {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+
+  .aboutUs-container {
+    border: 1px solid;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .contactInfo p {
+    font-size: 16px;
+    padding: 10px 0px 5px 0px;
+  }
