@@ -35,5 +35,5 @@ function highlightItem(item) {
 }
 
 function unHighlightItem(item) {
-    item.style.background = 'white';
+    item.style.background = '#F0F0F0';
 }
