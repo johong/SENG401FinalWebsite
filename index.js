@@ -8,7 +8,7 @@ for (let i = 0; i < aboutUs.length; i++) {
     });
 
     aboutUs[i].addEventListener('mouseout', function() {
-        unHighlightItem(aboutUs[i])
+        unHighlightAboutUs(aboutUs[i])
     });
 }
 
@@ -32,6 +32,10 @@ map.addEventListener('mouseout', function() {
 
 function highlightItem(item) {
     item.style.background = '#e1e1e1';
+}
+
+function unHighlightAboutUs(item){
+    item.style.background = 'white'
 }
 
 function unHighlightItem(item) {
