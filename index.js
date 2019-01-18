@@ -31,7 +31,7 @@ map.addEventListener('mouseout', function() {
 });
 
 function highlightItem(item) {
-    item.style.background = 'yellow';
+    item.style.background = '#e1e1e1';
 }
 
 function unHighlightItem(item) {
