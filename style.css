@@ -196,7 +196,7 @@ textarea {
     width: 100%;
     padding: 10px 10px;
     font-size: 20px;
-    margin: 10px 0px;
+    margin: 10px auto 0px auto;
     box-sizing: border-box;
     border: 2px solid #D3D3D3;
 }
@@ -212,7 +212,9 @@ div{
 }
 
 #mapId{
-    padding: 20px;
+    padding: 30px 10px;
+    width: 80%;
+    margin: auto;
 }
 
 #mapId img{
