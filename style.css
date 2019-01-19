@@ -152,13 +152,17 @@ img{
 }
 
 .aboutUs-container img{
-    border-radius: 10px;
+    /* border-radius: 5px; */
+    border-radius: 50%;
 }
 
 .contactInfo{
     width: 80%;
     margin: auto;
-    /* margin:20px; */
+}
+
+.contactInfo h1{
+    margin: 40px 0px 0px 0px;
 }
 
 input{
