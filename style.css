@@ -48,22 +48,21 @@ img{
 .top-images img{
     margin: 0px 10px 40px 10px;
     /* border-radius: 20px; */
-    /* transition: 0.3s ease-in-out; */
+    transition: 0.3s ease-in-out;
     box-shadow:none;
     width: 30rem;
 }
 
 @media(max-width:540px){
     .top-images img{
-        width: 15rem;
-        
+        width: 15rem;  
     }
 }
 
 
-/* .top img:hover{
+.top img:hover{
     transform: scale(1.05, 1.05);
-} */
+}
 
 
 /* Dropdown Button */
@@ -203,6 +202,7 @@ textarea {
     margin: 10px auto 0px auto;
     box-sizing: border-box;
     border: 2px solid #D3D3D3;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
 textarea::placeholder{
