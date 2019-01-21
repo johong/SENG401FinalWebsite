@@ -205,6 +205,7 @@ textarea {
     box-sizing: border-box;
     border: 2px solid #D3D3D3;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    border-radius: 4px;
 }
 
 textarea::placeholder{
@@ -225,6 +226,8 @@ div{
 
 #mapId img{
     width: 100%;
+    border-radius: 4px;
+
 }
 
 footer{
