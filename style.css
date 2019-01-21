@@ -173,6 +173,7 @@ input{
     box-sizing: border-box;
     border: 2px solid #D3D3D3;
     border-radius: 4px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
 input[type=button]{
