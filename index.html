@@ -6,6 +6,101 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="images/Icon.png">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            let edmontonInfo = {
+                Name: 'Name: Edmonton',
+                Latitude: 'Latitude: 53.5444',
+                Longitude: 'Longitude: -113.4909',
+                Population: 'Population: 960015',
+                Area: 'Area: 684.37 SqKM',
+                Density: 'Density: ' + (960015/684.37).toFixed(2).toString() + ' SqKM'
+            };
+
+            let calgaryInfo = {
+                Name: 'Name: Calgary',
+                Latitude: 'Latitude: 51.0486',
+                Longitude: 'Longitude: -114.0708',
+                Population: 'Population: 1096833',
+                Area: 'Area: 825.29 SqKM',
+                Density: 'Density: ' + (1096833/825.29).toFixed(2).toString() + ' SqKM'
+            };
+
+            $(document).ready(function() {
+                $("div.top").mouseover(function () {
+                    $("#currentSectionName").html("Top");
+                    $(this).css("background", "#e1e1e1");
+                });
+
+                $("div.top").mouseout(function () {
+                    $("#currentSectionName").html("");
+                    $(this).css("background", "white");
+                });
+
+
+                $("div.aboutUs-container").mouseover(function () {
+                    $("#currentSectionName").html("About Us");
+                    $(this).css("background", "#e1e1e1");
+                });
+
+                $("div.aboutUs-container").mouseout(function () {
+                    $("#currentSectionName").html("");
+                    $(this).css("background", "white");
+                });
+
+
+                $("div.inputField").mouseover(function () {
+                    $("#currentSectionName").html("Contact Us");
+                    $(this).css("background", "#e1e1e1");
+                });
+
+                $("div.inputField").mouseout(function () {
+                    $("#currentSectionName").html("");
+                    $(this).css("background", "#F0F0F0");
+                });
+
+
+                $("#mapId").mouseover(function () {
+                    $("#currentSectionName").html("Map");
+                    $(this).css("background", "#e1e1e1");
+                });
+
+                $("#mapId").mouseout(function () {
+                    $("#currentSectionName").html("");
+                    $(this).css("background", "#F0F0F0");
+                });
+
+
+                $("#area-edmonton").mouseover(function () {
+                    $("#map-text").show();
+                    $("#map-name").html(edmontonInfo['Name']);
+                    $("#map-lat").html(edmontonInfo['Latitude']);
+                    $("#map-long").html(edmontonInfo['Longitude']);
+                    $("#map-pop").html(edmontonInfo['Population']);
+                    $("#map-area").html(edmontonInfo['Area']);
+                    $("#map-density").html(edmontonInfo['Density']);
+                });
+
+                $("#area-edmonton").mouseout(function () {
+                    $("#map-text").hide();
+                });
+
+                
+                $("#area-calgary").mouseover(function () {
+                    $("#map-text").show();
+                    $("#map-name").html(calgaryInfo['Name']);
+                    $("#map-lat").html(calgaryInfo['Latitude']);
+                    $("#map-long").html(calgaryInfo['Longitude']);
+                    $("#map-pop").html(calgaryInfo['Population']);
+                    $("#map-area").html(calgaryInfo['Area']);
+                    $("#map-density").html(calgaryInfo['Density']);
+                });
+
+                $("#area-calgary").mouseout(function () {
+                    $("#map-text").hide();
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -151,5 +246,5 @@
         <footer>Copywrite &copy; 2019 The Boys</footer>
     </body>
 
-    <script type="text/javascript" src="index.js" async></script>
+    <!-- <script type="text/javascript" src="index.js" async></script> -->
 </html>
