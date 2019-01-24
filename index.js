@@ -7,6 +7,8 @@ let area = document.getElementById('area');
 let mapName = document.getElementById('map-name');
 let mapLat = document.getElementById('map-lat');
 let mapLong = document.getElementById('map-long');
+let mapPop = document.getElementById('map-pop');
+let mapArea = document.getElementById('map-area')
 
 const header = document.getElementsByClassName('top');
       aboutUs = document.getElementsByClassName('aboutUs-container'),
@@ -82,6 +84,9 @@ function showMapInfo(){
     mapName.innerHTML = "Name: "+edmontonInfo.Name;
     mapLat.innerHTML = "Latitude: "+edmontonInfo.Latitude;
     mapLong.innerHTML = "Longitude: "+edmontonInfo.Longitude;
+    mapPop.innerHTML = "Population: "+edmontonInfo.Population;
+    mapArea.innerHTML = "Area: "+edmontonInfo.Area;
+
 }
 
 function unShowMapInfo(){
