@@ -2,7 +2,7 @@ let aboutUs = document.getElementsByClassName('aboutUs-container');
 let contactInfo = document.getElementsByClassName('inputField');
 let map = document.getElementById('mapId');
 let area = document.getElementById('area');
-let mapInfo = document.getElementById('map-info')
+// let mapInfo = document.getElementById('map-info')
 
 for (let i = 0; i < aboutUs.length; i++) {
     aboutUs[i].addEventListener('mouseover', function() {
@@ -47,11 +47,10 @@ area.addEventListener('mouseout', function(){
 });
 
 function showMapInfo(){
-    mapInfo.style.display = 'block';
+    
 }
 
 function unShowMapInfo(){
-    mapInfo.style.display = 'none';
 }
 
 function highlightItem(item) {
