@@ -22,6 +22,15 @@ let edmontonInfo = {
 
 edmontonInfo['Density'] = (edmontonInfo['Population']/684.37).toFixed(2).toString() + ' SqKM';
 
+let calgaryInfo = {
+    Name: 'Calgary',
+    Latitude: 51.0486,
+    Longitude: - 114.0708,
+    Population: 1096833,
+    Area: '825.29 SqKM'
+}
+
+calgaryInfo['Density'] = (calgaryInfo['Population']/825.29).toFixed(2).toString() + ' SqKM';
 
 header[0].addEventListener('mouseover', function() {
     document.getElementById('currentSectionName').innerHTML = 'Top';
@@ -68,20 +77,29 @@ map.addEventListener('mouseout', function() {
 });
 
 areaEdmonton.addEventListener('mouseover', function() {
-    showMapInfo();
+    showEdmontonMapInfo();
 });
 
 areaEdmonton.addEventListener('mouseout', function(){
     unShowMapInfo();
 });
 
-function showMapInfo(){
+function showEdmontonMapInfo(){
     mapName.innerHTML = "Name: "+edmontonInfo.Name;
     mapLat.innerHTML = "Latitude: "+edmontonInfo.Latitude;
     mapLong.innerHTML = "Longitude: "+edmontonInfo.Longitude;
     mapPop.innerHTML = "Population: "+edmontonInfo.Population;
     mapArea.innerHTML = "Area: "+edmontonInfo.Area;
     mapDensity.innerHTML = "Density: "+edmontonInfo.Density;
+}
+
+function showCalgaryMapInfo(){
+    mapName.innerHTML = "Name: "+calgaryInfo.Name;
+    mapLat.innerHTML = "Latitude: "+calgaryInfo.Latitude;
+    mapLong.innerHTML = "Longitude: "+calgaryInfo.Longitude;
+    mapPop.innerHTML = "Population: "+calgaryInfo.Population;
+    mapArea.innerHTML = "Area: "+calgaryInfo.Area;
+    mapDensity.innerHTML = "Density: "+calgaryInfo.Density;
 }
 
 function unShowMapInfo(){
