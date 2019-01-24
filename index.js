@@ -8,7 +8,8 @@ let mapName = document.getElementById('map-name');
 let mapLat = document.getElementById('map-lat');
 let mapLong = document.getElementById('map-long');
 let mapPop = document.getElementById('map-pop');
-let mapArea = document.getElementById('map-area')
+let mapArea = document.getElementById('map-area');
+let mapDensity = document.getElementById('map-density');
 
 const header = document.getElementsByClassName('top');
       aboutUs = document.getElementsByClassName('aboutUs-container'),
@@ -25,7 +26,7 @@ let edmontonInfo = {
     Area: '684.37 SqKM'
 };
 
-edmontonInfo['Density'] = (edmontonInfo['Population']/684.37).toString() + ' SqKM';
+edmontonInfo['Density'] = (edmontonInfo['Population']/684.37).toFixed(2).toString() + ' SqKM';
 
 
 header[0].addEventListener('mouseover', function() {
@@ -86,6 +87,7 @@ function showMapInfo(){
     mapLong.innerHTML = "Longitude: "+edmontonInfo.Longitude;
     mapPop.innerHTML = "Population: "+edmontonInfo.Population;
     mapArea.innerHTML = "Area: "+edmontonInfo.Area;
+    mapDensity.innerHTML = "Density: "+edmontonInfo.Density;
 
 }
 
