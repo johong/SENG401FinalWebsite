@@ -1,9 +1,3 @@
-let aboutUs = document.getElementsByClassName('aboutUs-container');
-let contactInfo = document.getElementsByClassName('inputField');
-let map = document.getElementById('mapId');
-let area = document.getElementById('area');
-// let mapInfo = document.getElementById('map-info')
-
 let mapName = document.getElementById('map-name');
 let mapLat = document.getElementById('map-lat');
 let mapLong = document.getElementById('map-long');
@@ -15,7 +9,7 @@ const header = document.getElementsByClassName('top');
       aboutUs = document.getElementsByClassName('aboutUs-container'),
       contactInfo = document.getElementsByClassName('inputField'),
       map = document.getElementById('mapId'),
-      area = document.getElementById('area'),
+      areaEdmonton = document.getElementById('area-edmonton'),
       mapInfo = document.getElementById('map-info');
 
 let edmontonInfo = {
@@ -73,11 +67,11 @@ map.addEventListener('mouseout', function() {
     unHighlightItem(map);
 });
 
-area.addEventListener('mouseover', function() {
+areaEdmonton.addEventListener('mouseover', function() {
     showMapInfo();
 });
 
-area.addEventListener('mouseout', function(){
+areaEdmonton.addEventListener('mouseout', function(){
     unShowMapInfo();
 });
 
@@ -88,7 +82,6 @@ function showMapInfo(){
     mapPop.innerHTML = "Population: "+edmontonInfo.Population;
     mapArea.innerHTML = "Area: "+edmontonInfo.Area;
     mapDensity.innerHTML = "Density: "+edmontonInfo.Density;
-
 }
 
 function unShowMapInfo(){
