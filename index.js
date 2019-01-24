@@ -6,29 +6,35 @@ let mapInfo = document.getElementById('map-info')
 
 for (let i = 0; i < aboutUs.length; i++) {
     aboutUs[i].addEventListener('mouseover', function() {
+        document.getElementById('currentSectionName').innerHTML = 'About Us';
         highlightItem(aboutUs[i])
     });
 
     aboutUs[i].addEventListener('mouseout', function() {
+        document.getElementById('currentSectionName').innerHTML = '';
         unHighlightAboutUs(aboutUs[i])
     });
 }
 
 for (let i = 0; i < contactInfo.length; i++) {
     contactInfo[i].addEventListener('mouseover', function() {
+        document.getElementById('currentSectionName').innerHTML = 'Contact Us';
         highlightItem(contactInfo[i]);
     });
 
     contactInfo[i].addEventListener('mouseout', function() {
+        document.getElementById('currentSectionName').innerHTML = '';
         unHighlightItem(contactInfo[i]);
     });
 }
 
 map.addEventListener('mouseover', function() {
+    document.getElementById('currentSectionName').innerHTML = 'Map';
     highlightItem(map);
 });
 
 map.addEventListener('mouseout', function() {
+    document.getElementById('currentSectionName').innerHTML = '';
     unHighlightItem(map);
 });
 
