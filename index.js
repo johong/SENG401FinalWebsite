@@ -1,6 +1,8 @@
 let aboutUs = document.getElementsByClassName('aboutUs-container');
 let contactInfo = document.getElementsByClassName('inputField');
 let map = document.getElementById('mapId');
+let area = document.getElementById('area');
+let mapInfo = document.getElementById('map-info')
 
 for (let i = 0; i < aboutUs.length; i++) {
     aboutUs[i].addEventListener('mouseover', function() {
@@ -29,6 +31,22 @@ map.addEventListener('mouseover', function() {
 map.addEventListener('mouseout', function() {
     unHighlightItem(map);
 });
+
+area.addEventListener('mouseover', function() {
+    showMapInfo();
+});
+
+area.addEventListener('mouseout', function(){
+    unShowMapInfo();
+});
+
+function showMapInfo(){
+    mapInfo.style.display = 'block';
+}
+
+function unShowMapInfo(){
+    mapInfo.style.display = 'none';
+}
 
 function highlightItem(item) {
     item.style.background = '#e1e1e1';
