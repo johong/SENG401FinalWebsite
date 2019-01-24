@@ -10,6 +10,7 @@ const header = document.getElementsByClassName('top');
       contactInfo = document.getElementsByClassName('inputField'),
       map = document.getElementById('mapId'),
       areaEdmonton = document.getElementById('area-edmonton'),
+      areaCalgary = document.getElementById('area-calgary'),
       mapInfo = document.getElementById('map-info');
 
 let edmontonInfo = {
@@ -81,6 +82,14 @@ areaEdmonton.addEventListener('mouseover', function() {
 });
 
 areaEdmonton.addEventListener('mouseout', function(){
+    unShowMapInfo();
+});
+
+areaCalgary.addEventListener('mouseover', function() {
+    showCalgaryMapInfo();
+});
+
+areaCalgary.addEventListener('mouseout', function(){
     unShowMapInfo();
 });
 
