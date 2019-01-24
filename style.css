@@ -89,7 +89,6 @@ body{
 
     .currentSection {
         padding-top: 40px;
-        display: inline-block;
     }
 
 
@@ -246,7 +245,7 @@ body{
 
         }
 
-        
+
     footer{
     padding: 16px;
         text-align: center;
