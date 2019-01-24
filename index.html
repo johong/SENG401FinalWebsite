@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="images/Icon.png">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <!-- <script type="text/javascript" src="index.js" async></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             const edmontonInfo = {
@@ -26,12 +27,13 @@
                 Density: 'Density: ' + (1096833/825.29).toFixed(2).toString() + ' SqKM'
             };
 
-            const fakeComponent = {
-                title: ""
-            };
-
-            function updateCurrentSection(component=fakeComponent) {
-                $("#currentSectionName").html(component.title);
+            function updateCurrentSection(component=undefined) {
+                if (component === undefined) {
+                    $("#currentSectionName").html("");
+                } else {
+                    // component.name doesn't work for some stupid jQuery reason
+                    $("#currentSectionName").html(component.attributes.name.nodeValue);
+                }
             };
 
             function highlightComponent(component) {
@@ -44,19 +46,18 @@
 
 
             $(document).ready(function() {
-
                 $("div.top, div.aboutUs-container, div.inputField, #mapId").mouseover(function () {
                     updateCurrentSection(this);
                     highlightComponent(this);
                 });
 
                 $("div.top, div.aboutUs-container").mouseout(function () {
-                    updateCurrentSection(fakeComponent);
+                    updateCurrentSection();
                     unhighlightComponent(this);
                 });
 
                 $("div.inputField, #mapId").mouseout(function () {
-                    updateCurrentSection(fakeComponent);
+                    updateCurrentSection();
                     unhighlightComponent(this, "#F0F0F0");
                 });
 
@@ -104,27 +105,28 @@
             <h1 id="currentSectionName"></h1>
         </div>
 
-        <div class="top" title="Top">
+        <div class="top" name="Top">
             <h1>SENG 401 - Software Architecture</h1><br>
-            <div class = "top-images">
+            <div class="top-images">
                 <img src="images/TechnologyIllustration.png" alt="Technology Illustration" />
                 <img src="images/WebIllustration.png" alt="Web Illustration" />
             </div>
         </div>
 
-        <div id="aboutUsWrapper" title="About Us">
+        <div id="aboutUsWrapper">
             <h1 id="aboutUsTitle">About Us</h1>
             <div id="aboutUsID" class="aboutUs">
-                <div class = "aboutUs-container" title="About Us">
-                    <img src="images/Daniel.jpg" alt ="Daniel" width="200" height="200">
+
+                <div class="aboutUs-container" name="About Us">
+                    <img src="images/Daniel.jpg" alt="Daniel" width="200" height="200">
                     <p id="danielisspecial"><strong>Daniel</strong>(30021292)</p>
                     <p id="danielisspecial">
                         He is a 3rd year software engineering student, currently loving html and css.<br>
-                        As you can tell by the obnoxious font color he is also a fan of blue.<br><!--Remove this line if you want, along with the font :D-->
+                        As you can tell by the obnoxious font color he is also a fan of blue.<br>
                     </p>
                 </div>
 
-                <div class = "aboutUs-container" title="About Us">
+                <div class="aboutUs-container" name="About Us">
                     <img src="images/don.jpg" alt="don" width="200" height="200"/>
                     <p><strong>Don</strong></p>
                     <p>Don is a Computer Science student. He likes mountains and
@@ -132,22 +134,22 @@
                     </p>
                 </div>
 
-                <div class = "aboutUs-container" title="About Us">
-                <img src="images/Jesse.jpg" alt="jesse" width="200" height="200"/>
-                <p><strong>Jesse</strong>(30018774)</p>
-                <p>Jesse Hooper is a 3rd-year software engineering student.
-                    He has hiked a couple times as you can see in the picture above.
-                    He is also unsure of what else to say and so that's all! :)
-                </p>
+                <div class="aboutUs-container" name="About Us">
+                    <img src="images/Jesse.jpg" alt="jesse" width="200" height="200"/>
+                    <p><strong>Jesse</strong>(30018774)</p>
+                    <p>Jesse Hooper is a 3rd-year software engineering student.
+                        He has hiked a couple times as you can see in the picture above.
+                        He is also unsure of what else to say and so that's all! :)
+                    </p>
                 </div>
 
-                <div class="aboutUs-container" title="About Us">
+                <div class="aboutUs-container" name="About Us">
                     <img src="images/josh.jpg" alt="josh" width="200" height="200"/>
                     <p><strong>Josh</strong> (10137581)</p>
                     <p>He is a Computer Science student in his last year of studies.</p>
                 </div>
 
-                <div class = "aboutUs-container" title="About Us">
+                <div class="aboutUs-container" name="About Us">
                     <img src="./images/Lucas.jpg" alt = "Lucas" height="200"/>
                     <p><strong>Lucas</strong></p>
                     <p>Lucas is a 3rd-year software engineering student. He enjoys skiing in the winter and makes dope iOS apps like this one: 
@@ -155,80 +157,82 @@
                     </p>
                 </div>
 
-                <div class = "aboutUs-container" title="About Us">
+                <div class="aboutUs-container" name="About Us">
                     <img src="images/shiv.jpg" alt="shiv" width="200" height="200"/>
                     <p><strong>Shiv</strong></p>
-                    <p>Shiv Odedra is a 3rd-year Software Engineering student. He likes to <span style = 'color:red'>chill</span>, and enjoys a nice cup of tea before bed. </p>
+                    <p>Shiv Odedra is a 3rd-year Software Engineering student. He likes to <span style = 'color:red'>chill</span>, and enjoys a nice cup of tea before bed.</p>
                                                                                 <!--why does lucas only get made at me when i do this shit-->
                 </div>
+
             </div>
         </div>
 
         <div id="contactInfoId" class="contactInfo" title="Contact Us">
             <h1>Contact Us</h1>
             <form class="submitContactInfo">
-                <div class="inputField" title="Contact Us">
+
+                <div class="inputField" name="Contact Us">
                     <!-- Title <br> -->
                     <input type="text" placeholder="Title" required="required">
                 </div>
 
-                <div class="inputField" title="Contact Us">
+                <div class="inputField" name="Contact Us">
                     <!-- Phone Number <br> -->
                     <input type="tel" placeholder="Phone Number" required="required">
                 </div>
 
-                <div class="inputField" title="Contact Us">
+                <div class="inputField" name="Contact Us">
                     <!-- Email Address<br> -->
                     <input type="email" placeholder="Email Address" required="required">
                 </div>
 
-                <div class="inputField" title="Contact Us">
+                <div class="inputField" name="Contact Us">
                     <!-- Date<br> -->
                     <input type="date" required="required">
                 </div>
 
-                <div class="inputField" title="Contact Us">
+                <div class="inputField" name="Contact Us">
                     <!-- Website (optional)<br> -->
                     <input type="url" placeholder="Website (Optional)">
                 </div>
 
-                <div class="inputField" title="Contact Us">
+                <div class="inputField" name="Contact Us">
                     <!-- Message<br> -->
                     <!-- <input type="text" placeholder="Your message to us"> -->
                     <textarea  rows="10" placeholder="Your message to us" required="required" wrap="soft"></textarea>
                 </div>
 
-                <div class="inputField" title="Contact Us">
+                <div class="inputField" name="Contact Us">
                     <input type="button" value="Submit">
                 </div>
+
             </form>
         </div>
 
-        <div id="mapId" title="Map">
+        <div id="mapId" name="Map">
+
             <div>
-                <img src = 'images/WorldMap.png' alt = 'Worldmap' usemap = '#worldmap'  />
-                <map name = 'worldmap' >
-                    <area id = 'area-edmonton' shape='circle' coords='154,83,5' alt='calgary' href='http://www.edmonton.ca' target="_blank">
-                    <area id = 'area-calgary' shape='circle' coords="151,93,5" alt='calgary' href='http://www.calgary.ca' target="_blank">
+                <img src='images/WorldMap.png' alt='Worldmap' usemap='#worldmap' />
+                <map name='worldmap'>
+                    <area id='area-edmonton' shape='circle' coords='154,83,5' alt='calgary' href='http://www.edmonton.ca' target="_blank">
+                    <area id='area-calgary' shape='circle' coords="151,93,5" alt='calgary' href='http://www.calgary.ca' target="_blank">
                 </map>
             </div>
 
-            <div id = "map-info">
-                <div id = 'map-text'>
-                    <p id = 'map-name'></p>
-                    <p id = 'map-lat'></p>
-                    <p id = 'map-long'></p>
-                    <p id = 'map-pop'></p>
-                    <p id = 'map-area'></p>
-                    <p id = 'map-density'></p>
+            <div id="map-info">
+                <div id='map-text'>
+                    <p id='map-name'></p>
+                    <p id='map-lat'></p>
+                    <p id='map-long'></p>
+                    <p id='map-pop'></p>
+                    <p id='map-area'></p>
+                    <p id='map-density'></p>
                 </div>
             </div>
 
         </div>
 
-
         <footer>Copywrite &copy; 2019 The Boys</footer>
-    </body>
 
-    <!-- <script type="text/javascript" src="index.js" async></script> -->
+    </body>
 </html>
