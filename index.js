@@ -4,6 +4,10 @@ let map = document.getElementById('mapId');
 let area = document.getElementById('area');
 // let mapInfo = document.getElementById('map-info')
 
+let mapName = document.getElementById('map-name');
+let mapLat = document.getElementById('map-lat');
+let mapLong = document.getElementById('map-long');
+
 const header = document.getElementsByClassName('top');
       aboutUs = document.getElementsByClassName('aboutUs-container'),
       contactInfo = document.getElementsByClassName('inputField'),
@@ -75,10 +79,9 @@ area.addEventListener('mouseout', function(){
 });
 
 function showMapInfo(){
-    mapInfo.style.display = 'block';
-    for (let i = 0; i < contactInfo.length; i++) {
-        
-    }
+    mapName.innerHTML = "Name: "+edmontonInfo.Name;
+    mapLat.innerHTML = "Latitude: "+edmontonInfo.Latitude;
+    mapLong.innerHTML = "Longitude: "+edmontonInfo.Longitude;
 }
 
 function unShowMapInfo(){
