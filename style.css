@@ -250,10 +250,15 @@ div{
 
 #map-text{
     text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-60%);
+}
 
-position: relative;
-top: 50%;
-transform: translateY(-60%);
+@media screen and (max-width: 800px){
+    #map-text{
+        font-size: 12px;
+    }
 }
 
 
