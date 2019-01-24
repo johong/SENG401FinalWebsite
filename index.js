@@ -1,6 +1,7 @@
-let aboutUs = document.getElementsByClassName('aboutUs-container');
-let contactInfo = document.getElementsByClassName('inputField');
-let map = document.getElementById('mapId');
+const header = document.getElementsByClassName('top'),
+      aboutUs = document.getElementsByClassName('aboutUs-container'),
+      contactInfo = document.getElementsByClassName('inputField'),
+      map = document.getElementById('mapId');
 let edmonton = {
     Name: 'Edmonton',
     Latitude: 53.5444,
@@ -11,6 +12,16 @@ let edmonton = {
 
 edmonton['Density'] = (edmonton['Population']/684.37).toString() + ' SqKM';
 
+
+header[0].addEventListener('mouseover', function() {
+    document.getElementById('currentSectionName').innerHTML = 'Top';
+    highlightItem(header[0]);
+});
+
+header[0].addEventListener('mouseout', function() {
+    document.getElementById('currentSectionName').innerHTML = '';
+    unHighlightItem(header[0]);
+});
 
 for (let i = 0; i < aboutUs.length; i++) {
     aboutUs[i].addEventListener('mouseover', function() {
