@@ -92,6 +92,12 @@ function showMapInfo(){
 }
 
 function unShowMapInfo(){
+    mapName.innerHTML = "Name: ";
+    mapLat.innerHTML = "Latitude: ";
+    mapLong.innerHTML = "Longitude: ";
+    mapPop.innerHTML = "Population: ";
+    mapArea.innerHTML = "Area: ";
+    mapDensity.innerHTML = "Density: ";
 }
 
 function highlightItem(item) {
