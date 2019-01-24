@@ -8,67 +8,56 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
-            let edmontonInfo = {
+            const edmontonInfo = {
                 Name: 'Name: Edmonton',
                 Latitude: 'Latitude: 53.5444',
                 Longitude: 'Longitude: -113.4909',
-                Population: 'Population: 960015',
+                Population: 'Population: 960,015',
                 Area: 'Area: 684.37 SqKM',
                 Density: 'Density: ' + (960015/684.37).toFixed(2).toString() + ' SqKM'
             };
 
-            let calgaryInfo = {
+            const calgaryInfo = {
                 Name: 'Name: Calgary',
                 Latitude: 'Latitude: 51.0486',
                 Longitude: 'Longitude: -114.0708',
-                Population: 'Population: 1096833',
+                Population: 'Population: 1,096,833',
                 Area: 'Area: 825.29 SqKM',
                 Density: 'Density: ' + (1096833/825.29).toFixed(2).toString() + ' SqKM'
             };
 
+            const fakeComponent = {
+                title: ""
+            };
+
+            function updateCurrentSection(component=fakeComponent) {
+                $("#currentSectionName").html(component.title);
+            };
+
+            function highlightComponent(component) {
+                $(component).css("background", "#e1e1e1");
+            };
+
+            function unhighlightComponent(component, color="white") {
+                $(component).css("background", color);
+            };
+
+
             $(document).ready(function() {
-                $("#map-text").hide();
-                $("div.top").mouseover(function () {
-                    $("#currentSectionName").html("Top");
-                    $(this).css("background", "#e1e1e1");
+
+                $("div.top, div.aboutUs-container, div.inputField, #mapId").mouseover(function () {
+                    updateCurrentSection(this);
+                    highlightComponent(this);
                 });
 
-                $("div.top").mouseout(function () {
-                    $("#currentSectionName").html("");
-                    $(this).css("background", "white");
+                $("div.top, div.aboutUs-container").mouseout(function () {
+                    updateCurrentSection(fakeComponent);
+                    unhighlightComponent(this);
                 });
 
-
-                $("div.aboutUs-container").mouseover(function () {
-                    $("#currentSectionName").html("About Us");
-                    $(this).css("background", "#e1e1e1");
-                });
-
-                $("div.aboutUs-container").mouseout(function () {
-                    $("#currentSectionName").html("");
-                    $(this).css("background", "white");
-                });
-
-
-                $("div.inputField").mouseover(function () {
-                    $("#currentSectionName").html("Contact Us");
-                    $(this).css("background", "#e1e1e1");
-                });
-
-                $("div.inputField").mouseout(function () {
-                    $("#currentSectionName").html("");
-                    $(this).css("background", "#F0F0F0");
-                });
-
-
-                $("#mapId").mouseover(function () {
-                    $("#currentSectionName").html("Map");
-                    $(this).css("background", "#e1e1e1");
-                });
-
-                $("#mapId").mouseout(function () {
-                    $("#currentSectionName").html("");
-                    $(this).css("background", "#F0F0F0");
+                $("div.inputField, #mapId").mouseout(function () {
+                    updateCurrentSection(fakeComponent);
+                    unhighlightComponent(this, "#F0F0F0");
                 });
 
 
@@ -81,11 +70,6 @@
                     $("#map-area").html(edmontonInfo['Area']);
                     $("#map-density").html(edmontonInfo['Density']);
                 });
-
-                $("#area-edmonton").mouseout(function () {
-                    $("#map-text").hide();
-                });
-
                 
                 $("#area-calgary").mouseover(function () {
                     $("#map-text").show();
@@ -97,7 +81,7 @@
                     $("#map-density").html(calgaryInfo['Density']);
                 });
 
-                $("#area-calgary").mouseout(function () {
+                $("#area-edmonton, #area-calgary").mouseout(function () {
                     $("#map-text").hide();
                 });
             });
@@ -105,7 +89,7 @@
     </head>
 
     <body>
-        <nav class = "main-nav sticky">
+        <nav class="main-nav sticky">
             <div class="dropdown">
                 <button class="dropbtn">See More</button>
                 <div class="dropdown-content">
@@ -120,7 +104,7 @@
             <h1 id="currentSectionName"></h1>
         </div>
 
-        <div class = "top">
+        <div class="top" title="Top">
             <h1>SENG 401 - Software Architecture</h1><br>
             <div class = "top-images">
                 <img src="images/TechnologyIllustration.png" alt="Technology Illustration" />
@@ -128,10 +112,10 @@
             </div>
         </div>
 
-        <div id="aboutUsWrapper">
+        <div id="aboutUsWrapper" title="About Us">
             <h1 id="aboutUsTitle">About Us</h1>
             <div id="aboutUsID" class="aboutUs">
-                <div class = "aboutUs-container">
+                <div class = "aboutUs-container" title="About Us">
                     <img src="images/Daniel.jpg" alt ="Daniel" width="200" height="200">
                     <p id="danielisspecial"><strong>Daniel</strong>(30021292)</p>
                     <p id="danielisspecial">
@@ -140,7 +124,7 @@
                     </p>
                 </div>
 
-                <div class = "aboutUs-container">
+                <div class = "aboutUs-container" title="About Us">
                     <img src="images/don.jpg" alt="don" width="200" height="200"/>
                     <p><strong>Don</strong></p>
                     <p>Don is a Computer Science student. He likes mountains and
@@ -148,7 +132,7 @@
                     </p>
                 </div>
 
-                <div class = "aboutUs-container">
+                <div class = "aboutUs-container" title="About Us">
                 <img src="images/Jesse.jpg" alt="jesse" width="200" height="200"/>
                 <p><strong>Jesse</strong>(30018774)</p>
                 <p>Jesse Hooper is a 3rd-year software engineering student.
@@ -157,13 +141,13 @@
                 </p>
                 </div>
 
-                <div class="aboutUs-container">
+                <div class="aboutUs-container" title="About Us">
                     <img src="images/josh.jpg" alt="josh" width="200" height="200"/>
                     <p><strong>Josh</strong> (10137581)</p>
                     <p>He is a Computer Science student in his last year of studies.</p>
                 </div>
 
-                <div class = "aboutUs-container">
+                <div class = "aboutUs-container" title="About Us">
                     <img src="./images/Lucas.jpg" alt = "Lucas" height="200"/>
                     <p><strong>Lucas</strong></p>
                     <p>Lucas is a 3rd-year software engineering student. He enjoys skiing in the winter and makes dope iOS apps like this one: 
@@ -171,7 +155,7 @@
                     </p>
                 </div>
 
-                <div class = "aboutUs-container">
+                <div class = "aboutUs-container" title="About Us">
                     <img src="images/shiv.jpg" alt="shiv" width="200" height="200"/>
                     <p><strong>Shiv</strong></p>
                     <p>Shiv Odedra is a 3rd-year Software Engineering student. He likes to <span style = 'color:red'>chill</span>, and enjoys a nice cup of tea before bed. </p>
@@ -180,48 +164,47 @@
             </div>
         </div>
 
-        <div id="contactInfoId" class="contactInfo">
+        <div id="contactInfoId" class="contactInfo" title="Contact Us">
             <h1>Contact Us</h1>
             <form class="submitContactInfo">
-                <div class="inputField">
+                <div class="inputField" title="Contact Us">
                     <!-- Title <br> -->
                     <input type="text" placeholder="Title" required="required">
                 </div>
 
-                <div class="inputField">
+                <div class="inputField" title="Contact Us">
                     <!-- Phone Number <br> -->
                     <input type="tel" placeholder="Phone Number" required="required">
                 </div>
 
-                <div class="inputField">
+                <div class="inputField" title="Contact Us">
                     <!-- Email Address<br> -->
                     <input type="email" placeholder="Email Address" required="required">
                 </div>
 
-                <div class="inputField">
+                <div class="inputField" title="Contact Us">
                     <!-- Date<br> -->
                     <input type="date" required="required">
                 </div>
 
-                <div class="inputField">
+                <div class="inputField" title="Contact Us">
                     <!-- Website (optional)<br> -->
                     <input type="url" placeholder="Website (Optional)">
                 </div>
 
-                <div class="inputField">
+                <div class="inputField" title="Contact Us">
                     <!-- Message<br> -->
                     <!-- <input type="text" placeholder="Your message to us"> -->
                     <textarea  rows="10" placeholder="Your message to us" required="required" wrap="soft"></textarea>
                 </div>
 
-                <div class="inputField">
+                <div class="inputField" title="Contact Us">
                     <input type="button" value="Submit">
                 </div>
             </form>
         </div>
 
-        <div id="mapId">
-
+        <div id="mapId" title="Map">
             <div>
                 <img src = 'images/WorldMap.png' alt = 'Worldmap' usemap = '#worldmap'  />
                 <map name = 'worldmap' >
@@ -232,12 +215,12 @@
 
             <div id = "map-info">
                 <div id = 'map-text'>
-                    <p id = 'map-name'>Name:</p>
-                    <p id = 'map-lat'>Latitude:</p>
-                    <p id = 'map-long'>Longitude:</p>
-                    <p id = 'map-pop'>Population:</p>
-                    <p id = 'map-area'>Area:</p>
-                    <p id = 'map-density'>Density:</p>
+                    <p id = 'map-name'></p>
+                    <p id = 'map-lat'></p>
+                    <p id = 'map-long'></p>
+                    <p id = 'map-pop'></p>
+                    <p id = 'map-area'></p>
+                    <p id = 'map-density'></p>
                 </div>
             </div>
 
